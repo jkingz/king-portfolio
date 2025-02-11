@@ -15,6 +15,7 @@ const isOpen = ref(false)
           <NuxitesLogo class="size-9" />
           <span class="sr-only">{{ settings?.data.site_title }} home page</span>
         </NuxtLink>
+        <span class="p-2">Nuxites</span>
         <button class="block md:hidden p-2 text-3xl" :aria-expanded="isOpen" @click="isOpen = true" >
         <Icon name="ph-list-bold" class="w-6 h-6" />
         </button>
