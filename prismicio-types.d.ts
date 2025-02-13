@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = HeroSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice = BentoSlice | HeroSlice | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -204,12 +204,12 @@ export interface BentoSliceDefaultPrimary {
   /**
    * Heading field in *Bento → Default → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: bento.default.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  heading: prismic.TitleField;
+  heading: prismic.RichTextField;
 
   /**
    * Body field in *Bento → Default → Primary*
