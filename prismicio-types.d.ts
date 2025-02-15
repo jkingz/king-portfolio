@@ -383,6 +383,91 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Showcase → Default → Primary*
+ */
+export interface ShowcaseSliceDefaultPrimary {
+  /**
+   * Heading field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Showcase image field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.showcase_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  showcase_image: prismic.ImageField<never>;
+
+  /**
+   * Subheading field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField;
+
+  /**
+   * Body field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Subheading2 field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.subheading2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading2: prismic.TitleField;
+
+  /**
+   * Body2 field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.body2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body2: prismic.RichTextField;
+
+  /**
+   * Subheading3 field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.subheading3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading3: prismic.RichTextField;
+
+  /**
+   * Body3 field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.body3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body3: prismic.RichTextField;
+}
+
+/**
  * Default variation for Showcase Slice
  *
  * - **API ID**: `default`
@@ -391,14 +476,112 @@ export type RichTextSlice = prismic.SharedSlice<
  */
 export type ShowcaseSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ShowcaseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Showcase → Reverse → Primary*
+ */
+export interface ShowcaseSliceReversePrimary {
+  /**
+   * Heading field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Showcase image field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.showcase_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  showcase_image: prismic.ImageField<never>;
+
+  /**
+   * Subheading field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.TitleField;
+
+  /**
+   * Body field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Subheading2 field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.subheading2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading2: prismic.TitleField;
+
+  /**
+   * Body2 field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.body2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body2: prismic.RichTextField;
+
+  /**
+   * Subheading3 field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.subheading3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading3: prismic.RichTextField;
+
+  /**
+   * Body3 field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.body3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body3: prismic.RichTextField;
+}
+
+/**
+ * Reverse variation for Showcase Slice
+ *
+ * - **API ID**: `reverse`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseSliceReverse = prismic.SharedSliceVariation<
+  "reverse",
+  Simplify<ShowcaseSliceReversePrimary>,
   never
 >;
 
 /**
  * Slice variation for *Showcase*
  */
-type ShowcaseSliceVariation = ShowcaseSliceDefault;
+type ShowcaseSliceVariation = ShowcaseSliceDefault | ShowcaseSliceReverse;
 
 /**
  * Showcase Shared Slice
@@ -453,8 +636,11 @@ declare module "@prismicio/client" {
       RichTextSliceVariation,
       RichTextSliceDefault,
       ShowcaseSlice,
+      ShowcaseSliceDefaultPrimary,
+      ShowcaseSliceReversePrimary,
       ShowcaseSliceVariation,
       ShowcaseSliceDefault,
+      ShowcaseSliceReverse,
     };
   }
 }
