@@ -3,7 +3,7 @@ html {
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: url("/assets/noise-texture.svg");
+  background-image: url('/assets/noise-texture.svg');
   @apply bg-gray-950 bg-repeat text-gray-50;
 }
 

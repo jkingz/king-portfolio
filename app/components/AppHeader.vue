@@ -1,31 +1,44 @@
 <script setup lang="ts">
-import type { Content } from '@prismicio/client'
+import type { Content } from '@prismicio/client';
 defineProps<{
-  settings?: Content.SettingsDocument
-}>()
+  settings?: Content.SettingsDocument;
+}>();
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 </script>
 
 <template>
   <header class="p-4 md:p-6">
-    <nav aria-label="Main navigation" class="mx-auto max-w-6xl flex flex-col justify-between py-2 md:flex-row md:items-center">
+    <nav
+      aria-label="Main navigation"
+      class="mx-auto max-w-6xl flex flex-col justify-between py-2 md:flex-row md:items-center"
+    >
       <div class="flex items-center justify-between">
-        <NuxtLink to="/" class="z-50" aria-label="Home" title="Home" @click="isOpen = false">
+        <NuxtLink
+          to="/"
+          class="z-50"
+          aria-label="Home"
+          title="Home"
+          @click="isOpen = false"
+        >
           <NuxitesLogo class="size-9" />
           <span class="sr-only">{{ settings?.data.site_title }} home page</span>
         </NuxtLink>
-        <button class="block md:hidden p-2 text-3xl" :aria-expanded="isOpen" @click="isOpen = true" >
-        <Icon name="ph-list-bold" class="w-6 h-6" />
+        <button
+          class="block md:hidden p-2 text-3xl"
+          :aria-expanded="isOpen"
+          @click="isOpen = true"
+        >
+          <Icon name="ph-list-bold" class="w-6 h-6" />
         </button>
       </div>
 
       <div
-        class="md:hidden fixed inset-0 z-40 flex flex-col items-end bg-gray-950 pr-4 pt-4 transition-transform duration-300 ease-in-out
-        will-change-transform"
-        :class="isOpen ? 'translate-x-0' : 'translate-x-full'">
+        class="md:hidden fixed inset-0 z-40 flex flex-col items-end bg-gray-950 pr-4 pt-4 transition-transform duration-300 ease-in-out will-change-transform"
+        :class="isOpen ? 'translate-x-0' : 'translate-x-full'"
+      >
         <button class="block p-2 text-3xl" @click="isOpen = false">
-          <Icon name="ph-x-bold" class="w-6 h-6"  />
+          <Icon name="ph-x-bold" class="w-6 h-6" />
         </button>
         <ul class="grid justify-items-end gap-6">
           <li v-for="link in settings?.data.navigation" :key="link.key">
@@ -46,7 +59,6 @@ const isOpen = ref(false)
           />
         </li>
       </ul>
-
     </nav>
   </header>
 </template>

@@ -3,7 +3,7 @@ import { repositoryName } from './slicemachine.config.json';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   future: {
-    compatibilityVersion: 4
+    compatibilityVersion: 4,
   },
 
   devtools: { enabled: true },
@@ -21,7 +21,7 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.svg' }],
-    }
+    },
   },
 
   css: ['~/assets/css/main.css'],
@@ -34,7 +34,22 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxthub/core',
+    '@nuxt/image',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
   ],
+
+  site: {
+    url: 'https://king.nuxt.dev',
+    name: 'King Portfolio',
+    gzip: true,
+    routes: ['/'],
+  },
+
+  robots: {
+    allow: ['/'],
+    sitemap: 'https://king.nuxt.dev',
+  },
 
   prismic: {
     endpoint: repositoryName,
@@ -50,9 +65,9 @@ export default defineNuxtConfig({
           uid: 'home',
           path: '/',
         },
-      ]
-    }
+      ],
+    },
   },
 
   compatibilityDate: '2025-01-06',
-})
+});
