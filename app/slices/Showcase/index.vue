@@ -58,6 +58,18 @@ onMounted(() => {
           wrapper="h3"
           class="mt-6 text-2xl font-normal"
         />
+        <div>
+          <p>
+            Project Web Apps |
+            <a href="https://propzap.com/" class="text-sky-600 underline"
+              >Propzap</a
+            >
+            |
+            <a href="https://propzappro.com/#/" class="text-sky-600 underline"
+              >PropzapPro</a
+            >
+          </p>
+        </div>
         <PrismicRichText
           :field="slice.primary.body"
           wrapper="div"
