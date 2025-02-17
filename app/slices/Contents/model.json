@@ -1,0 +1,18 @@
+{
+  "id": "contents",
+  "type": "SharedSlice",
+  "name": "Contents",
+  "description": "Contents",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

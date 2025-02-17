@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | ContentsSlice
   | ShowcaseSlice
   | BentoSlice
   | HeroSlice
@@ -262,6 +263,36 @@ type BentoSliceVariation = BentoSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
+
+/**
+ * Default variation for Contents Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Contents*
+ */
+type ContentsSliceVariation = ContentsSliceDefault;
+
+/**
+ * Contents Shared Slice
+ *
+ * - **API ID**: `contents`
+ * - **Description**: Contents
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentsSlice = prismic.SharedSlice<
+  "contents",
+  ContentsSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -627,6 +658,9 @@ declare module "@prismicio/client" {
       BentoSliceDefaultPrimary,
       BentoSliceVariation,
       BentoSliceDefault,
+      ContentsSlice,
+      ContentsSliceVariation,
+      ContentsSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

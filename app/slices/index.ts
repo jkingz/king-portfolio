@@ -5,6 +5,7 @@ import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
   bento: defineAsyncComponent(() => import("./Bento/index.vue")),
+  contents: defineAsyncComponent(() => import("./Contents/index.vue")),
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
   rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
   showcase: defineAsyncComponent(() => import("./Showcase/index.vue")),
