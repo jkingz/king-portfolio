@@ -37,7 +37,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
+    'nuxt-visitors',
   ],
+  nitro: {
+    experimental: {
+      websocket: true,
+    },
+  },
 
   site: {
     url: 'https://king.nuxt.dev',

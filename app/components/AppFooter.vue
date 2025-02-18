@@ -3,6 +3,7 @@ import type { Content } from '@prismicio/client';
 defineProps<{
   settings?: Content.SettingsDocument;
 }>();
+const { visitors } = useVisitors();
 </script>
 
 <template>
@@ -15,7 +16,10 @@ defineProps<{
         <NuxitesLogo class="size-9" />
         <span class="sr-only">{{ settings?.data.site_title }} home page</span>
       </NuxtLink>
-      <p>Copyright © 2025 All rights reserved.</p>
+      <p class="dark:text-teal-300 text-balance">
+        Copyright © 2025 | visitors
+        <span class="text-green-500">{{ visitors }} 👋</span>
+      </p>
       <ul class="md:flex gap-6">
         <li v-for="link in settings?.data.navigation" :key="link.key">
           <PrismicLink
