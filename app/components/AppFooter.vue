@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NumberFlow from '@number-flow/vue';
 import type { Content } from '@prismicio/client';
 defineProps<{
   settings?: Content.SettingsDocument;
@@ -16,10 +17,6 @@ const { visitors } = useVisitors();
         <NuxitesLogo class="size-9" />
         <span class="sr-only">{{ settings?.data.site_title }} home page</span>
       </NuxtLink>
-      <p class="dark:text-teal-300 text-balance">
-        Copyright © 2025 | visitors
-        <span class="text-green-500">{{ visitors }} 👋</span>
-      </p>
       <ul class="md:flex gap-6">
         <li v-for="link in settings?.data.navigation" :key="link.key">
           <PrismicLink
@@ -29,5 +26,40 @@ const { visitors } = useVisitors();
         </li>
       </ul>
     </nav>
+    <div id="" class="absolute">
+      <div
+        class="fixed z-[999] flex items-center justify-center bottom-2 w-full"
+      >
+        <a
+          href="https://github.com/jkingz"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="text-neutral-500 text-xs w-fit flex justify-center items-center gap-2 cursor-pointer hover:text-neutral-200 transition-colors duration-300"
+        >
+          © 2025 <span class="text-balance text-teal-500">King</span>
+          <span class="relative flex size-2">
+            <span
+              class="absolute bg-green-50 inline-flex size-full animate-ping rounded-full opacity-75"
+            />
+
+            <span
+              class="relative bg-green-500 inline-flex size-2 scale-90 rounded-full"
+            />
+          </span>
+          <span class="mt-1 sm:flex hidden">
+            Active visitors:
+            <NumberFlow
+              aria-label="1"
+              class="text-green-500 pl-2 text-sm font-bold font-mono"
+              continuous=""
+              role="img"
+              data-will-change=""
+              data-allow-mismatch=""
+              :value="visitors"
+            />
+          </span>
+        </a>
+      </div>
+    </div>
   </footer>
 </template>

@@ -35,6 +35,7 @@
     "wrangler": "^3.108.1"
   },
   "dependencies": {
+    "@number-flow/vue": "^0.4.3",
     "gsap": "^3.12.7"
   }
 }
