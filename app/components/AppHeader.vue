@@ -8,7 +8,7 @@ const isOpen = ref(false);
 </script>
 
 <template>
-  <header class="p-4 md:p-6">
+  <header class="sticky top-0 z-10 bg-slate-950 mb-6 p-4 md:p-6">
     <nav
       aria-label="Main navigation"
       class="mx-auto max-w-6xl flex flex-col justify-between py-2 md:flex-row md:items-center"
