@@ -3,7 +3,13 @@ import { components } from '~/slices';
 
 const prismic = usePrismic();
 const { data: page } = await useAsyncData('index', () =>
-  prismic.client.getByUID('page', 'home'),
+  prismic.client.getByUID('page', 'home', {
+    fetchLinks: [
+      'content_detail.company',
+      'content_detail.description',
+      'content_detail.cover',
+    ],
+  }),
 );
 
 useSeoMeta({

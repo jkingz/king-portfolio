@@ -14,13 +14,15 @@ defineProps(
 </script>
 
 <template>
-  <section>
-    <PrismicRichText
-      :field="slice.primary.content"
-      class="richtext"
-      wrapper="section"
-    />
-  </section>
+  <AppBounded>
+    <section>
+      <PrismicRichText
+        :field="slice.primary.content"
+        class="prose prose-invert prose-slate w-full text-center"
+        wrapper="div"
+      />
+    </section>
+  </AppBounded>
 </template>
 
 <style scoped>

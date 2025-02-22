@@ -11,7 +11,46 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "content_details": {
+          "type": "Group",
+          "config": {
+            "label": "Content details",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "content_detail"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "items": {}
     }
   ]

@@ -71,6 +71,10 @@ export default defineNuxtConfig({
           uid: 'home',
           path: '/',
         },
+        {
+          type: 'content_detail',
+          path: '/content-detail/:uid',
+        },
       ],
     },
   },

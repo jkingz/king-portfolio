@@ -4,6 +4,104 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ContentDetailDocumentDataSlicesSlice = RichTextSlice;
+
+/**
+ * Content for content detail documents
+ */
+interface ContentDetailDocumentData {
+  /**
+   * Company field in *content detail*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_detail.company
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  company: prismic.TitleField;
+
+  /**
+   * Description field in *content detail*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_detail.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Cover field in *content detail*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_detail.cover
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cover: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *content detail*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_detail.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ContentDetailDocumentDataSlicesSlice> /**
+   * Meta Title field in *content detail*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: content_detail.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *content detail*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: content_detail.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *content detail*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_detail.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * content detail document from Prismic
+ *
+ * - **API ID**: `content_detail`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContentDetailDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ContentDetailDocumentData>,
+    "content_detail",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | ContentsSlice
   | ShowcaseSlice
@@ -154,7 +252,10 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | ContentDetailDocument
+  | PageDocument
+  | SettingsDocument;
 
 /**
  * Item in *Bento → Default → Primary → Bento*
@@ -265,6 +366,58 @@ type BentoSliceVariation = BentoSliceDefault;
 export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
 
 /**
+ * Item in *Contents → Default → Primary → Content details*
+ */
+export interface ContentsSliceDefaultPrimaryContentDetailsItem {
+  /**
+   * Link field in *Contents → Default → Primary → Content details*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contents.default.primary.content_details[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.ContentRelationshipField<"content_detail">;
+}
+
+/**
+ * Primary content in *Contents → Default → Primary*
+ */
+export interface ContentsSliceDefaultPrimary {
+  /**
+   * Heading field in *Contents → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contents.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *Contents → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contents.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Content details field in *Contents → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contents.default.primary.content_details[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  content_details: prismic.GroupField<
+    Simplify<ContentsSliceDefaultPrimaryContentDetailsItem>
+  >;
+}
+
+/**
  * Default variation for Contents Slice
  *
  * - **API ID**: `default`
@@ -273,7 +426,7 @@ export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
  */
 export type ContentsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ContentsSliceDefaultPrimary>,
   never
 >;
 
@@ -647,6 +800,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ContentDetailDocument,
+      ContentDetailDocumentData,
+      ContentDetailDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -659,6 +815,8 @@ declare module "@prismicio/client" {
       BentoSliceVariation,
       BentoSliceDefault,
       ContentsSlice,
+      ContentsSliceDefaultPrimaryContentDetailsItem,
+      ContentsSliceDefaultPrimary,
       ContentsSliceVariation,
       ContentsSliceDefault,
       HeroSlice,

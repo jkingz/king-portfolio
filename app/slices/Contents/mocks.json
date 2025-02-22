@@ -2,7 +2,51 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Unknown"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint amet magna ea occaecat in excepteur voluptate nostrud fugiat et irure elit sint labore. Anim irure occaecat eiusmod deserunt duis esse deserunt Lorem. Nulla irure id mollit sunt aliqua fugiat veniam."
+						}
+					}
+				]
+			},
+			"content_details": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "ba5d34fb-bb16-4ed6-9712-8fcad1db37bd",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
 		"items": []
 	}
 ]
