@@ -38,3 +38,17 @@ body {
 .image__glow {
   @apply absolute h-1/2 w-1/2 rounded-full blur-3xl opacity-0 mix-blend-screen transition-opacity will-change-auto duration-500 group-hover:opacity-30;
 }
+
+.signalLine {
+  --rotation: 90deg;
+  @apply h-[20px] w-[1.5px] bg-gradient-to-t md:h-[1.5px] md:w-[30px] lg:w-[40px] xl:w-[50px];
+
+  background-color: hsla(0, 0%, 100%, 0.1);
+  background: linear-gradient(
+    var(--rotation),
+    rgba(255, 255, 255, 0.4) 50%,
+    #0ea5e9 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-size: 500% 500%;
+}

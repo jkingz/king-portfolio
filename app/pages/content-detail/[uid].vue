@@ -44,7 +44,7 @@ onMounted(() => {
         <NuxitesAppGridVue />
         <h1 class="text-5xl font-medium text-balance md:text-7xl">
           <PrismicText :field="page?.data.company" />
-          <RichTextGlideText class="block text-lg">Company</RichTextGlideText>
+          <RichTextGlideText class="block text-lg">Project Details</RichTextGlideText>
         </h1>
         <PrismicImage
           v-if="$prismic.isFilled.image(page?.data.cover)"
