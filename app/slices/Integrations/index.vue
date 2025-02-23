@@ -46,7 +46,7 @@ onMounted(() => {
       },
       {
         backgroundPosition: '100% 100%',
-        duration: 1.6,
+        duration: 1,
         stagger: { from: 'center', each: 0.3 },
       },
     ],
